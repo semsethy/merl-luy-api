@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merl Luy Practice API</title>
+<style>
+  :root { --bg:#F5F6F2; --card:#FFFFFF; --line:#E1E5DF; --text:#101814; --muted:#5B6660; --accent:#0B6E4F; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { margin:0 0 4px; font-size: 28px; } h2 { margin: 32px 0 10px; font-size: 18px; }
+  p { color: var(--muted); margin: 0 0 20px; }
+  table { width:100%; border-collapse: collapse; background: var(--card); border:1px solid var(--line); border-radius: 12px; overflow:hidden; }
+  td { text-align:left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  code { font: 13px ui-monospace, Menlo, monospace; background:#EEF0EC; padding: 2px 6px; border-radius: 5px; }
+  a { color: var(--accent); }
+  .m { font: 700 12px ui-monospace, Menlo, monospace; color: var(--accent); white-space: nowrap; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Merl Luy Practice API</h1>
+  <p>For practising 4 screens (Home, Activity, Add entry, Edit entry) in UIKit and SwiftUI, and for performance labs. Full docs are in <code>README.md</code>.</p>
+  <table>
+    <tr><td class="m">GET</td><td><a href="/api/summary"><code>/api/summary</code></a></td><td>Home card</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/transactions?limit=5"><code>/api/transactions</code></a></td><td>month, kind, q, wallet_id, limit, offset</td></tr>
+    <tr><td class="m">POST</td><td><code>/api/transactions</code></td><td>Add entry (client_id required)</td></tr>
+    <tr><td class="m">GET · PATCH · DELETE</td><td><code>/api/transactions/{id}</code></td><td>Edit entry</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/categories"><code>/api/categories</code></a></td><td>10 categories</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/wallets"><code>/api/wallets</code></a></td><td>3 wallets</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/budgets"><code>/api/budgets</code></a></td><td>budgets + spent</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/perf/transactions?count=20"><code>/api/perf/transactions?count=3000</code></a></td><td>one big response (max 6000)</td></tr>
+    <tr><td class="m">GET</td><td><a href="/api/perf/slow?ms=1500"><code>/api/perf/slow?ms=3000</code></a></td><td>slow answer</td></tr>
+  </table>
+  <h2>Chaos params, on any endpoint</h2>
+  <table>
+    <tr><td><code>?delay=3000</code></td><td>wait 3 s (max 8000)</td></tr>
+    <tr><td><code>?fail=0.3</code></td><td>30% chance of HTTP 500</td></tr>
+    <tr><td><code>?status=503</code></td><td>always that status</td></tr>
+  </table>
+</main>
+</body>
+</html>
